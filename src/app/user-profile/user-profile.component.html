@@ -1,0 +1,43 @@
+<div class="user-container">
+  <div class="ui-g-12" style="width: 100%;">
+    <p-messages [closable]="true"></p-messages>
+  </div>
+  <div class="image-container">
+    <img [src]="binaryImage" class="profile-picture">
+  </div>
+    <div>
+      <label for="file" class="bold-title"
+          >Image
+          <span class="optional-span">(Optional)</span></label
+      >
+      <p class="image-note">
+          We Recommended a 600x600 pixel JPG or PNG, 2 MB in size
+      </p>
+      <div class="image">
+          <div class="drop-image-container">
+              <label
+                  for="images"
+                  class="drop-container"
+                  id="dropcontainer"
+              >  
+              <svg class="svg-icon" height="20" viewBox="0 0 1792 1792" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M1344 1472q0-26-19-45t-45-19-45 19-19 45 19 45 45 19 45-19 19-45zm256 0q0-26-19-45t-45-19-45 19-19 45 19 45 45 19 45-19 19-45zm128-224v320q0 40-28 68t-68 28h-1472q-40 0-68-28t-28-68v-320q0-40 28-68t68-28h427q21 56 70.5 92t110.5 36h256q61 0 110.5-36t70.5-92h427q40 0 68 28t28 68zm-325-648q-17 40-59 40h-256v448q0 26-19 45t-45 19h-256q-26 0-45-19t-19-45v-448h-256q-42 0-59-40-17-39 14-69l448-448q18-19 45-19t45 19l448 448q31 30 14 69z"/></svg>
+                  <span class="drop-title">{{uploadedImage}}</span>
+                  <input
+                      class="box-file"
+                      type="file"
+                      name="files[]"
+                      id="file"
+                      data-multiple-caption="{count} files selected"
+                      multiple
+                      (change)="onFileChange($event)"
+                  />
+              </label>
+          </div>
+      </div>
+  </div>
+  <div class="user-details">
+    <label>Name:</label>
+    <input type="text" [(ngModel)]="user.name">
+</div>
+  <button class="edit-button" (click)="editUser()">Edit</button>
+</div>

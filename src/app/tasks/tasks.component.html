@@ -1,0 +1,68 @@
+<div class="container">
+    <div class="table">
+      <div class="table-header">
+        <h3>To Do</h3>
+        <h3>In Progress</h3>
+        <h3>Done</h3>
+      </div>
+      <div class="table-body">
+        <!-- To Do Column -->
+        <div
+          class="first-column-container"
+          cdkDropList
+          [cdkDropListData]="toDoTasks"
+          id="first-column-list"
+          [cdkDropListConnectedTo]="['second-column-list','third-column-list']"
+          (cdkDropListDropped)="drop($event, 'toDoTasks')"
+        >
+          <div
+            class="first-column"
+            *ngFor="let toDoTask of toDoTasks"
+            cdkDrag
+          >
+            <p>{{ toDoTask.title }}</p>
+            <p>{{ toDoTask.dueDate }}</p>
+          </div>
+        </div>
+  
+        <!-- In Progress Column -->
+        <div
+          class="second-column-container"
+          cdkDropList
+          id="second-column-list"
+          [cdkDropListConnectedTo]="['first-column-list','third-column-list']"
+          [cdkDropListData]="inProgressTasks"
+          (cdkDropListDropped)="drop($event, 'inProgressTasks')"
+        >
+          <div
+            class="second-column"
+            *ngFor="let inProgressTask of inProgressTasks"
+            cdkDrag
+          >
+            <p>{{ inProgressTask.title }}</p>
+            <p>{{ inProgressTask.dueDate }}</p>
+          </div>
+        </div>
+  
+        <!-- Done Column -->
+        <div
+          class="third-column-container"
+          cdkDropList
+          id="third-column-list"
+          [cdkDropListConnectedTo]="['first-column-list','second-column-list']"
+          [cdkDropListData]="doneTasks"
+          (cdkDropListDropped)="drop($event, 'doneTasks')"
+        >
+          <div
+            class="third-column"
+            *ngFor="let doneTask of doneTasks"
+            cdkDrag
+          >
+            <p>{{ doneTask.title }}</p>
+            <p>{{ doneTask.dueDate }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

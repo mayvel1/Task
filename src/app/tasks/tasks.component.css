@@ -1,0 +1,35 @@
+.container{
+    height: 89vh;
+}
+.table{
+    height: 100%;
+}
+.table>div{
+    display: flex;
+    justify-content: space-around;
+}
+.table-header{
+    border-bottom: 1px solid gray;
+}
+.table-body{
+    padding-top: 10px;
+    min-height: 89%;
+}
+.first-column-container > div,
+.second-column-container > div,
+.third-column-container > div {
+  background-color: lightblue;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 20px auto;
+  cursor: pointer;
+  text-align: center;
+  width: 50%;
+}
+.first-column-container,
+.second-column-container,
+.third-column-container {
+min-height: 89%;
+width: 33%;
+padding: 30px
+}
